@@ -2,13 +2,19 @@
 #define pato_hpp
 #include <SFML/Graphics.hpp>
 using namespace sf;
-class pato
+class Pato
 {
+public:
 Texture texture;
-Sprite sprite;
-int posX,posY;
+Sprite pato;
+int speed;
 int pts;
-int 
+Pato();
+int sumarPts();
+void moverseIzq();
+void moverseDer();
+void brincar();
+void drawTo(RenderWindow &window);
 };
 
 #endif
