@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include "pato.hpp"
+#include "bases.hpp"
 #include <iostream>
+#include <vector>
 using namespace std;
 using namespace sf;
 int main()
@@ -12,6 +14,7 @@ int main()
    Pato papu;
    bool vivo;
    Texture fondo;
+   vector<Sprite>bases;
    if(!fondo.loadFromFile("fondo.jpg"))
     {
         cout << "Error al cargar imagen" << endl;
@@ -33,10 +36,10 @@ int main()
             if(event.mouseButton.button==Mouse::Left)
             {
                 girar2=1;
-                papu.pato.setScale(-1,1); 
+                papu.pato.setScale(-.5,.5); 
                 if(girar)
                 {
- papu.pato.move(100,0);
+ papu.pato.move(50,0);
  girar=0;
  
                 }
@@ -44,11 +47,11 @@ int main()
                 papu.moverseIzq();
             }
             if(event.mouseButton.button==Mouse::Right)
-            {papu.pato.setScale(1,1); 
+            {papu.pato.setScale(.5,.5); 
             girar=1;
                  if(girar2)
                 {
- papu.pato.move(-100,0);
+ papu.pato.move(-50,0);
  girar2=0;
                 }
                 papu.moverseDer();

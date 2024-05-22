@@ -8,7 +8,8 @@ Pato::Pato()
         cout << "Error al cargar imagen" << endl;
     }
     this->pato.setTexture(this->texture);
-    this->pato.setPosition(451,370);
+    this->pato.setPosition(451,420);
+    this->pato.setScale(.5,.5);
 
 
 }
@@ -33,5 +34,8 @@ this->pato.move(10.f,0.f);
 }
 void Pato::brincar()
 {
-
+Vector2f acc,brinco;
+acc=Vector2f(0.f,2.f);
+brinco=Vector2f(0.f,200);
+while()
 }
