@@ -8,6 +8,7 @@ int main()
     RenderWindow window(VideoMode(1002, 600), "Poor Ducky :(");
     window.setFramerateLimit(10);
    // CircleShape shape(100.f);
+                bool girar=1,girar2=0;
    Pato papu;
    bool vivo;
    Texture fondo;
@@ -30,12 +31,26 @@ int main()
         if (event.type == Event::MouseButtonPressed)
         {
             if(event.mouseButton.button==Mouse::Left)
-            {papu.pato.setScale(-1,1); 
-            
+            {
+                girar2=1;
+                papu.pato.setScale(-1,1); 
+                if(girar)
+                {
+ papu.pato.move(100,0);
+ girar=0;
+ 
+                }
+       // girar=1;
                 papu.moverseIzq();
             }
             if(event.mouseButton.button==Mouse::Right)
             {papu.pato.setScale(1,1); 
+            girar=1;
+                 if(girar2)
+                {
+ papu.pato.move(-100,0);
+ girar2=0;
+                }
                 papu.moverseDer();
             }
         }
