@@ -7,13 +7,14 @@ class Pato
 public:
 Texture texture;
 Sprite pato;
-int speed;
+Vector2f speed;
 int pts;
 Pato();
 int sumarPts();
 void moverseIzq();
 void moverseDer();
 void brincar();
+void click();
 void drawTo(RenderWindow &window);
 };
 

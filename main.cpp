@@ -36,7 +36,7 @@ int main()
             if(event.mouseButton.button==Mouse::Left)
             {
                 girar2=1;
-                papu.pato.setScale(-.5,.5); 
+                papu.pato.setScale(-1,1); 
                 if(girar)
                 {
  papu.pato.move(50,0);
@@ -47,7 +47,7 @@ int main()
                 papu.moverseIzq();
             }
             if(event.mouseButton.button==Mouse::Right)
-            {papu.pato.setScale(.5,.5); 
+            {papu.pato.setScale(1,1); 
             girar=1;
                  if(girar2)
                 {
@@ -57,7 +57,12 @@ int main()
                 papu.moverseDer();
             }
         }
+        if(Keyboard::isKeyPressed(Keyboard::Space))
+        {
+            papu.click();
+        }
         window.clear(Color(51,51,51));
+        papu.brincar();
         window.draw(fondoS);
         window.draw(papu.pato);
       //  window.draw(shape);

@@ -7,5 +7,5 @@ class Bases
 Texture texture;
 Sprite spriteBase;
 
-}
+};
 #endif

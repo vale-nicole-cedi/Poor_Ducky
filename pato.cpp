@@ -9,9 +9,7 @@ Pato::Pato()
     }
     this->pato.setTexture(this->texture);
     this->pato.setPosition(451,420);
-    this->pato.setScale(.5,.5);
-
-
+    this->speed = Vector2f(0.f,-100.f);
 }
 
 int Pato::sumarPts()
@@ -24,18 +22,37 @@ void Pato::drawTo(RenderWindow &window)
 }
 void Pato::moverseIzq()
 {
+    if(this->pato.getPosition().x >=0)
+    {
+
 this->pato.move(-10.f,0.f);
-//this->pato.move(100,0);
-// this->pato.setScale(-1,1);    esto va en el main antes de mandar la funcion moverseIzq()
+    }
+    else{
+        this->pato.move(0.f,0.f);
+    }
 }
 void Pato::moverseDer()
 {
+    if (this->pato.getPosition().x<=952)
+    {
+
 this->pato.move(10.f,0.f);
+    }
+    else{
+        this->pato.move(0.f,0.f);
+    }
 }
 void Pato::brincar()
 {
-Vector2f acc,brinco;
-acc=Vector2f(0.f,2.f);
-brinco=Vector2f(0.f,200);
-while()
+            this->pato.move(this->speed);
+
+        if (this->pato.getPosition().y <=373)//rebota abajo
+        {
+            this->speed.y = 0;
+        }
+
+    }
+void Pato::click()
+{
+            this->speed = this->speed + Vector2f(0.f,2.f);
 }
