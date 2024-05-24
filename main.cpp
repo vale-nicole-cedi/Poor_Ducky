@@ -31,8 +31,8 @@ int main()
             if (event.type == Event::Closed)
                 window.close();
         }
-        if (event.type == Event::KeyPressed)
-        {
+      //  if (event.type == Event::KeyPressed)
+       // {
             if (Keyboard::isKeyPressed(Keyboard::Left) || Keyboard::isKeyPressed(Keyboard::A))
             {
                 girar2 = 1;
@@ -56,10 +56,10 @@ int main()
                 }
                 papu.moverseDer();
             }
-        }
+       // }
         if (Keyboard::isKeyPressed(Keyboard::Space) || Keyboard::isKeyPressed(Keyboard::W) )
         {
-            if (papu.pato.getPosition().y >= 373)
+            if (papu.pato.getPosition().y >= 370)
             {
                 papu.click();
             }

@@ -9,7 +9,7 @@ Pato::Pato()
         cout << "Error al cargar imagen" << endl;
     }
     this->pato.setTexture(this->texture);
-    this->pato.setPosition(451,380);
+    this->pato.setPosition(451,370);
  //   this->speed = Vector2f(0.f,-10.f);
 }
 
@@ -23,7 +23,7 @@ void Pato::drawTo(RenderWindow &window)
 }
 void Pato::moverseIzq()
 {
-    if(this->pato.getPosition().x >=0)
+    if(this->pato.getPosition().x >100)
     {
 
 this->pato.move(-10.f,0.f);
@@ -34,7 +34,7 @@ this->pato.move(-10.f,0.f);
 }
 void Pato::moverseDer()
 {
-    if (this->pato.getPosition().x<=952)
+    if (this->pato.getPosition().x<=902)
     {
 
 this->pato.move(10.f,0.f);
