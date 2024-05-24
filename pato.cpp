@@ -3,6 +3,7 @@
 using namespace std;
 Pato::Pato()
 {
+
     if(!this->texture.loadFromFile("pato_sinfondo.png"))
     {
         cout << "Error al cargar imagen" << endl;
@@ -45,6 +46,7 @@ this->pato.move(10.f,0.f);
 void Pato::brincar()
 {
                this->speed.y += this->acc.y;
+        
          this->pato.move(this->speed);
         if (this->pato.getPosition().y >373)//rebota abajo
         {
@@ -61,6 +63,7 @@ void Pato::brincar()
 
     }
 void Pato::click()
-{this->speed = {0.f, -50.f};
+{
+        this->speed = {0.f, -40.f};
         this->acc.y = 5.f;
 }

@@ -8,20 +8,20 @@ using namespace sf;
 int main()
 {
     RenderWindow window(VideoMode(1002, 600), "Poor Ducky :(");
-    window.setFramerateLimit(10);
-   // CircleShape shape(100.f);
-                bool girar=1,girar2=0;
-   Pato papu;
-   bool vivo;
-   Texture fondo;
-   vector<Sprite>bases;
-   if(!fondo.loadFromFile("fondo.jpg"))
+    window.setFramerateLimit(30);
+    // CircleShape shape(100.f);
+    bool girar = 1, girar2 = 0;
+    Pato papu;
+    bool vivo;
+    Texture fondo;
+    vector<Sprite> bases;
+    if (!fondo.loadFromFile("fondo.jpg"))
     {
         cout << "Error al cargar imagen" << endl;
     }
     Sprite fondoS;
     fondoS.setTexture(fondo);
-   // shape.setFillColor(Color::Green);
+    // shape.setFillColor(Color::Green);
 
     while (window.isOpen())
     {
@@ -31,45 +31,44 @@ int main()
             if (event.type == Event::Closed)
                 window.close();
         }
-        if (event.type == Event::MouseButtonPressed)
+        if (event.type == Event::KeyPressed)
         {
-            if(event.mouseButton.button==Mouse::Left)
+            if (Keyboard::isKeyPressed(Keyboard::Left) || Keyboard::isKeyPressed(Keyboard::A))
             {
-                girar2=1;
-                papu.pato.setScale(-1,1); 
-                if(girar)
+                girar2 = 1;
+                papu.pato.setScale(-1, 1);
+                if (girar)
                 {
- papu.pato.move(100,0);
- girar=0;
- 
+                    papu.pato.move(100, 0);
+                    girar = 0;
                 }
-       // girar=1;
+                // girar=1;
                 papu.moverseIzq();
             }
-            if(event.mouseButton.button==Mouse::Right)
-            {papu.pato.setScale(1,1); 
-            girar=1;
-                 if(girar2)
+            if (Keyboard::isKeyPressed(Keyboard::Right) || Keyboard::isKeyPressed(Keyboard::D))
+            {
+                papu.pato.setScale(1, 1);
+                girar = 1;
+                if (girar2)
                 {
- papu.pato.move(-100,0);
- girar2=0;
+                    papu.pato.move(-100, 0);
+                    girar2 = 0;
                 }
                 papu.moverseDer();
             }
         }
-        if(Keyboard::isKeyPressed(Keyboard::Space))
+        if (Keyboard::isKeyPressed(Keyboard::Space) || Keyboard::isKeyPressed(Keyboard::W) )
         {
-            if(papu.pato.getPosition().y>50)
+            if (papu.pato.getPosition().y >= 373)
             {
-
-            papu.click();
+                papu.click();
             }
         }
-        window.clear(Color(51,51,51));
+        window.clear(Color(51, 51, 51));
         papu.brincar();
         window.draw(fondoS);
         window.draw(papu.pato);
-      //  window.draw(shape);
+        //  window.draw(shape);
         window.display();
     }
 
