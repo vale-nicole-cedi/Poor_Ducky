@@ -39,7 +39,7 @@ int main()
                 papu.pato.setScale(-1,1); 
                 if(girar)
                 {
- papu.pato.move(50,0);
+ papu.pato.move(100,0);
  girar=0;
  
                 }
@@ -51,7 +51,7 @@ int main()
             girar=1;
                  if(girar2)
                 {
- papu.pato.move(-50,0);
+ papu.pato.move(-100,0);
  girar2=0;
                 }
                 papu.moverseDer();
@@ -59,7 +59,11 @@ int main()
         }
         if(Keyboard::isKeyPressed(Keyboard::Space))
         {
+            if(papu.pato.getPosition().y>50)
+            {
+
             papu.click();
+            }
         }
         window.clear(Color(51,51,51));
         papu.brincar();

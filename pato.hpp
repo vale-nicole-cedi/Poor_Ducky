@@ -7,7 +7,7 @@ class Pato
 public:
 Texture texture;
 Sprite pato;
-Vector2f speed;
+Vector2f speed, acc;
 int pts;
 Pato();
 int sumarPts();

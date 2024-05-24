@@ -8,8 +8,8 @@ Pato::Pato()
         cout << "Error al cargar imagen" << endl;
     }
     this->pato.setTexture(this->texture);
-    this->pato.setPosition(451,420);
-    this->speed = Vector2f(0.f,-100.f);
+    this->pato.setPosition(451,380);
+ //   this->speed = Vector2f(0.f,-10.f);
 }
 
 int Pato::sumarPts()
@@ -44,15 +44,23 @@ this->pato.move(10.f,0.f);
 }
 void Pato::brincar()
 {
-            this->pato.move(this->speed);
-
-        if (this->pato.getPosition().y <=373)//rebota abajo
+               this->speed.y += this->acc.y;
+         this->pato.move(this->speed);
+        if (this->pato.getPosition().y >373)//rebota abajo
         {
             this->speed.y = 0;
+            this->acc.y=0;
+            this->pato.move(0.f,0.f);
+            return ;
+        }
+        if(this->pato.getPosition().y<=0)
+        {
+           // this->pato.move(0.f,40.f);
+            this->speed.y=0;
         }
 
     }
 void Pato::click()
-{
-            this->speed = this->speed + Vector2f(0.f,2.f);
+{this->speed = {0.f, -50.f};
+        this->acc.y = 5.f;
 }
