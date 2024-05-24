@@ -4,8 +4,8 @@
 using namespace sf;
 class Bases
 {
-Texture texture;
+Texture base;
 Sprite spriteBase;
-
+Bases();
 };
 #endif
