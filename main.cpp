@@ -14,6 +14,7 @@ int main()
     Pato papu;
     bool vivo;
     Texture fondo;
+    Bases base1;
     vector<Sprite> bases;
     if (!fondo.loadFromFile("fondo.jpg"))
     {
@@ -68,6 +69,7 @@ int main()
         papu.brincar();
         window.draw(fondoS);
         window.draw(papu.pato);
+        window.draw(base1.spriteBase);
         //  window.draw(shape);
         window.display();
     }

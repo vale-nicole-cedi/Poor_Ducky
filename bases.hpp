@@ -4,8 +4,10 @@
 using namespace sf;
 class Bases
 {
+    public:
 Texture base;
 Sprite spriteBase;
 Bases();
+void drawTo(RenderWindow &window);
 };
 #endif
