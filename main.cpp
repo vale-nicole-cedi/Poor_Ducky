@@ -14,8 +14,9 @@ int main()
     Pato papu;
     bool vivo;
     Texture fondo;
-    Bases base1;
+    Bases base1(Vector2f());
     vector<Sprite> bases;
+    bases.pushback()
     if (!fondo.loadFromFile("fondo.jpg"))
     {
         cout << "Error al cargar imagen" << endl;

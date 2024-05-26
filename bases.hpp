@@ -7,7 +7,7 @@ class Bases
     public:
 Texture base;
 Sprite spriteBase;
-Bases();
+Bases(Vector2f lugar);
 void drawTo(RenderWindow &window);
 };
 #endif
