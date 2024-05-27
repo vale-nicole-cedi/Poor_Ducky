@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "pato.hpp"
 #include "bases.hpp"
+#include "sandia.hpp"
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -14,9 +15,25 @@ int main()
     Pato papu;
     bool vivo;
     Texture fondo;
-    Bases base1(Vector2f());
-    vector<Sprite> bases;
-    bases.pushback()
+    Bases base1(Vector2f(100,310));
+    Bases base2(Vector2f(452,310));
+    Bases base3(Vector2f(802,310));
+    Bases base4(Vector2f(284,205));
+    Bases base5(Vector2f(618,205));
+    Bases base6(Vector2f(100,100));
+    Bases base7(Vector2f(452,100));
+    Bases base8(Vector2f(802,100));
+    vector<Bases>bases;
+    bases.push_back(base1);
+    bases.push_back(base2);
+    bases.push_back(base3);
+    bases.push_back(base4);
+    bases.push_back(base5);
+    bases.push_back(base6);
+    bases.push_back(base7);
+    bases.push_back(base8);
+    Sandia sandia;
+    
     if (!fondo.loadFromFile("fondo.jpg"))
     {
         cout << "Error al cargar imagen" << endl;
@@ -41,7 +58,7 @@ int main()
                 papu.pato.setScale(-1, 1);
                 if (girar)
                 {
-                    papu.pato.move(100, 0);
+                    papu.pato.move(50, 0);
                     girar = 0;
                 }
                 // girar=1;
@@ -53,7 +70,7 @@ int main()
                 girar = 1;
                 if (girar2)
                 {
-                    papu.pato.move(-100, 0);
+                    papu.pato.move(-50, 0);
                     girar2 = 0;
                 }
                 papu.moverseDer();
@@ -61,19 +78,22 @@ int main()
        // }
         if (Keyboard::isKeyPressed(Keyboard::Space) || Keyboard::isKeyPressed(Keyboard::W) )
         {
-            if (papu.pato.getPosition().y >= 370)
+            if (papu.pato.getPosition().y >= 415 || papu.pisando)
             {
                 papu.click();
             }
         }
         window.clear(Color(51, 51, 51));
         papu.brincar();
+        papu.estaEnBase();
         window.draw(fondoS);
+        for(int i=0;i<bases.size();i++)
+        {
+            window.draw(bases[i].spriteBase);
+        }
+        window.draw(sandia.spriteSandia);
         window.draw(papu.pato);
-        window.draw(base1.spriteBase);
-        //  window.draw(shape);
         window.display();
     }
-
     return 0;
 }
