@@ -10,6 +10,7 @@ Sprite pato;
 Vector2f speed, acc;
 int pts;
 bool pisando;
+bool derecha;
 Pato();
 int sumarPts();
 void moverseIzq();

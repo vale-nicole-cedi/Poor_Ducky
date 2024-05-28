@@ -8,6 +8,7 @@ class Sandia
 Texture sandia;
 Sprite spriteSandia;
 Sandia();
+void cambioDeLugar();
 void drawTo(RenderWindow &window);
 };
 #endif

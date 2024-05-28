@@ -9,7 +9,7 @@ Sandia::Sandia()//tenemos que ponerle al constructor una posicion para mandarla 
         cout << "Error al cargar imagen" << endl;
     }
     this->spriteSandia.setTexture(this->sandia);
-    this->spriteSandia.setPosition(0,0);
+    this->spriteSandia.setPosition(rand()%952,rand()%400);//random 
 }
 
 void Sandia::drawTo(RenderWindow &window)

@@ -53,7 +53,7 @@ int main()
       //  if (event.type == Event::KeyPressed)
        // {
             if (Keyboard::isKeyPressed(Keyboard::Left) || Keyboard::isKeyPressed(Keyboard::A))
-            {
+            { papu.derecha=0;
                 girar2 = 1;
                 papu.pato.setScale(-1, 1);
                 if (girar)
@@ -66,6 +66,7 @@ int main()
             }
             if (Keyboard::isKeyPressed(Keyboard::Right) || Keyboard::isKeyPressed(Keyboard::D))
             {
+                papu.derecha=1;
                 papu.pato.setScale(1, 1);
                 girar = 1;
                 if (girar2)
@@ -78,7 +79,7 @@ int main()
        // }
         if (Keyboard::isKeyPressed(Keyboard::Space) || Keyboard::isKeyPressed(Keyboard::W) )
         {
-            if (papu.pato.getPosition().y >= 415 || papu.pisando)
+            if ( papu.pisando)
             {
                 papu.click();
             }
