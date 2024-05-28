@@ -1,6 +1,7 @@
 #ifndef pato_hpp
 #define pato_hpp
 #include <SFML/Graphics.hpp>
+#include "bases.hpp"
 using namespace sf;
 class Pato
 {
@@ -12,12 +13,12 @@ int pts;
 bool pisando;
 bool derecha;
 Pato();
-int sumarPts();
+void sumarPts();
 void moverseIzq();
 void moverseDer();
 void brincar();
 void click();
-void estaEnBase();
+bool estaEnBase(Bases base);
 void drawTo(RenderWindow &window);
 };
 

@@ -4,7 +4,7 @@ using namespace std;
 Bases::Bases(Vector2f lugar)//tenemos que ponerle al constructor una posicion para mandarla desde el main y saber donde escribirlo.
 {
 
- if(!this->base.loadFromFile("base_sinfondo.png"))
+ if(!this->base.loadFromFile("bases.png"))
     {
         cout << "Error al cargar imagen" << endl;
     }

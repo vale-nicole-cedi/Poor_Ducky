@@ -12,10 +12,11 @@ Pato::Pato()
     this->pato.setPosition(451, 415);
     this->pisando = 1;
     this->derecha = 1;
+    this->pts=0;
     //   this->speed = Vector2f(0.f,-10.f);
 }
 
-int Pato::sumarPts()
+void Pato::sumarPts()
 {
     this->pts += 1;
     cout << pts << endl;
@@ -73,126 +74,26 @@ void Pato::click()
     this->acc.y = 1.f;
     this->pisando = 0;
 }
-void Pato::estaEnBase()
+bool Pato::estaEnBase(Bases base)
 {
-    if (derecha)
+    // Vector2f pos = this->pato.getPosition();
+    // Vector2f size = this->pato.getLocalBounds().getSize();
+    if (this->pato.getGlobalBounds().intersects(base.spriteBase.getGlobalBounds()))
     {
-
-        // base1
-        if (this->pato.getPosition().x > 50 && this->pato.getPosition().x < 200 /*&& this->pato.getPosition().y <= 290*/)
+        if(this->pato.getPosition().y<base.spriteBase.getPosition().y)
         {
-            if (this->speed.y > 1 && this->pato.getPosition().y >= 283)
-            {
-                this->pisando = 1;
-                this->pato.setPosition(this->pato.getPosition().x, 290);
-            }
-            else
-            {
-                this->pisando = 0;
-            }
+        this->acc.y=0;
+        this->pisando=1;
         }
-        // base2
-        if (this->pato.getPosition().x > 402 && this->pato.getPosition().x < 552 /*&& this->pato.getPosition().y <= 290*/)
+        else 
         {
-            if (this->speed.y > 0 && this->pato.getPosition().y >= 283)
-            {
-                this->pisando = 1;
-                this->pato.setPosition(this->pato.getPosition().x, 285);
-            }
-            else
-            {
-                this->pisando = 0;
-            }
+           this->pisando=0;
         }
-        // base 3
-        if (this->pato.getPosition().x > 752 && this->pato.getPosition().x < 902 /*&& this->pato.getPosition().y <= 290*/)
-        {
-            if (this->speed.y > 0 && this->pato.getPosition().y >= 283)
-            {
-                this->pisando = 1;
-                this->pato.setPosition(this->pato.getPosition().x, 285);
-            }
-            else
-            {
-                this->pisando = 0;
-            }
-        }
-        //base 4
-         if (this->pato.getPosition().x > 234 && this->pato.getPosition().x < 378 && this->pato.getPosition().y <= 185)
-        {
-            if (this->speed.y > 0 && this->pato.getPosition().y >= 178)
-            {
-                this->pisando = 1;
-                this->pato.setPosition(this->pato.getPosition().x, 180);
-            }
-            else
-            {
-                this->pisando = 0;
-            }
-        }
+        this->speed.y=0;
     }
-    if (!this->derecha)
-    {
-    //Base1
-    if (this->pato.getPosition().x > 100 && this->pato.getPosition().x < 250 /*&& this->pato.getPosition().y <= 290*/)
-    {
-        if (this->speed.y > 1 && this->pato.getPosition().y >= 283)
-        {
-            this->pisando = 1;
-            this->pato.setPosition(this->pato.getPosition().x, 290);
-        }
-        else
-        {
-            this->pisando = 0;
-        }
-    }
-    // base2
-    if (this->pato.getPosition().x > 452 && this->pato.getPosition().x < 602 /*&& this->pato.getPosition().y <= 290*/)
-    {
-        if (this->speed.y > 0 && this->pato.getPosition().y >= 283)
-        {
-            this->pisando = 1;
-            this->pato.setPosition(this->pato.getPosition().x, 285);
-        }
-        else
-        {
-            this->pisando = 0;
-        }
-    }
-    // base 3
-    if (this->pato.getPosition().x > 802 && this->pato.getPosition().x < 952 /*&& this->pato.getPosition().y <= 290*/)
-    {
-        if (this->speed.y > 0 && this->pato.getPosition().y >= 283)
-        {
-            this->pisando = 1;
-            this->pato.setPosition(this->pato.getPosition().x, 285);
-        }
-        else
-        {
-            this->pisando = 0;
-        }
-    }
-     //base 4
-         if (this->pato.getPosition().x > 284 && this->pato.getPosition().x < 428 && this->pato.getPosition().y <= 185)
-        {
-            if (this->speed.y > 0 && this->pato.getPosition().y >= 178 )
-            {
-                this->pisando = 1;
-                this->pato.setPosition(this->pato.getPosition().x, 180);
-            }
-            else
-            {
-                this->pisando = 0;
-            }
-        }
-    }
-
     if (this->pato.getPosition().y >= 401)
     {
         this->pisando = 1;
     }
-    // else
-    // {
-    //     this->pisando=0;
-    // }
+    return this->pisando;
 }

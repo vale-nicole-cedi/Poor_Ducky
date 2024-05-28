@@ -16,3 +16,7 @@ void Sandia::drawTo(RenderWindow &window)
 {
     window.draw(this->spriteSandia);
 }
+void Sandia::cambioDeLugar()
+{
+    this->spriteSandia.setPosition(rand()%952,rand()%400);
+}
