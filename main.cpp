@@ -4,6 +4,7 @@
 #include "sandia.hpp"
 #include "bolas.hpp"
 #include "flechas.hpp"
+#include "sierra.hpp"
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -35,8 +36,10 @@ int main()
     bases.push_back(base7);
     bases.push_back(base8);
     Sandia sandia;
-    Bolas bola;
+    Bolas bola(Vector2f(6.f,6.f));
+    Bolas bola1(Vector2f(0.f,6.f));
     Flechas flecha;
+    Sierra sierra;
     bool touching=0;
 
     if (!fondo.loadFromFile("fondo.jpg"))
@@ -85,7 +88,6 @@ int main()
                 }
                 papu.moverseDer();
             }
-            // }
             if (Keyboard::isKeyPressed(Keyboard::Space) || Keyboard::isKeyPressed(Keyboard::W))
             {
                 if (papu.pisando || touching)
@@ -93,21 +95,7 @@ int main()
                     papu.click();
                 }
             }
-            if (sandia.spriteSandia.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
-            {
-                papu.sumarPts();
-                sandia.cambioDeLugar();
-            }
-            if (flecha.spriteFlecha.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
-            {
-                vivo = 0;
-            }
-            if (bola.spriteBola.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
-            {
-                vivo=0;
-            }
-            window.clear(Color(51, 51, 51));
-             touching=0;
+            touching=0;
             for (int i=0;i<bases.size();i++)
             {
                 if(papu.estaEnBase(bases[i])==1)
@@ -116,12 +104,56 @@ int main()
                    break;
                 }
             }
+            // }
+            // if(touching)
+            // {
+            // papu.acc.y=0;
+            // papu.speed.y=0;
+            // }
+            // else{
+            //     papu.acc.y=1;
+            //     papu.speed.y=1;
+            // }
             if(!touching)
             {
                 papu.acc.y=1;
             }
             cout<<touching<<endl;
             papu.brincar();
+            
+            if (sandia.spriteSandia.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
+            {
+                papu.sumarPts();
+                sandia.cambioDeLugar();
+            }
+            // if (flecha.spriteFlecha.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
+            // {
+            //     vivo = 0;
+            // }
+            // if (bola.spriteBola.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
+            // {
+            //     vivo=0;
+            // }
+            // if (sierra.spriteSierra.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
+            // {
+            //     vivo=0;
+            // }
+            window.clear(Color(51, 51, 51));
+            //  touching=0;
+            // for (int i=0;i<bases.size();i++)
+            // {
+            //     if(papu.estaEnBase(bases[i])==1)
+            //     {
+            //         touching=1;
+            //        break;
+            //     }
+            // }
+            // if(!touching)
+            // {
+            //     papu.acc.y=1;
+            // }
+            // cout<<touching<<endl;
+            // papu.brincar();
             window.draw(fondoS);
             for (int i = 0; i < bases.size(); i++)
             {
@@ -129,9 +161,13 @@ int main()
             }
             window.draw(sandia.spriteSandia);
             window.draw(bola.spriteBola);
+            window.draw(bola1.spriteBola);
             window.draw(flecha.spriteFlecha);
+            window.draw(sierra.spriteSierra);
             flecha.update();
             bola.update();
+            bola1.update();
+            sierra.update();
             window.draw(papu.pato);
             window.display();
         }

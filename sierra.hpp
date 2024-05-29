@@ -1,14 +1,14 @@
-#ifndef bolas_hpp
-#define bolas_hpp
+#ifndef sierra_hpp
+#define sierra_hpp
 #include <SFML/Graphics.hpp>
 using namespace sf;
-class Bolas
+class Sierra
 {
     public:
-Texture bola;
-Sprite spriteBola;
+Texture sierra;
+Sprite spriteSierra;
 Vector2f speed;
-Bolas(Vector2f speed);
+Sierra();
 void update();
 void drawTo(RenderWindow &window);
 };

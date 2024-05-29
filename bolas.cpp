@@ -1,14 +1,15 @@
 #include "bolas.hpp"
 #include <iostream>
 using namespace std;
-Bolas::Bolas()
+Bolas::Bolas( Vector2f speed)
 {
     if(!this->bola.loadFromFile("ball_spikes.png"))
     {
         cout << "Error al cargar imagen" << endl;
     }
     this->spriteBola.setTexture(this->bola);
-    this->speed=Vector2f(6.f,6.f);
+    this->speed=speed;
+    this->spriteBola.setPosition(Vector2f(rand()%990,1.f));
 }
 void Bolas::drawTo(RenderWindow &window)
 {
