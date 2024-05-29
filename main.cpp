@@ -38,8 +38,12 @@ int main()
     Sandia sandia;
     Bolas bola(Vector2f(6.f,6.f));
     Bolas bola1(Vector2f(0.f,6.f));
+    Bolas bola2(Vector2f(6.f,0.f));
     Flechas flecha;
+    Flechas flecha1;
     Sierra sierra;
+    Sierra sierra1;
+    int c=0;
     bool touching=0;
 
     if (!fondo.loadFromFile("fondo.jpg"))
@@ -54,7 +58,7 @@ int main()
     {
         if (vivo)
         {
-
+            c++;
             Event event;
             while (window.pollEvent(event))
             {
@@ -118,7 +122,7 @@ int main()
             {
                 papu.acc.y=1;
             }
-            cout<<touching<<endl;
+            // cout<<touching<<endl;
             papu.brincar();
             
             if (sandia.spriteSandia.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
@@ -126,18 +130,45 @@ int main()
                 papu.sumarPts();
                 sandia.cambioDeLugar();
             }
-            // if (flecha.spriteFlecha.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
-            // {
-            //     vivo = 0;
-            // }
-            // if (bola.spriteBola.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
-            // {
-            //     vivo=0;
-            // }
-            // if (sierra.spriteSierra.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
-            // {
-            //     vivo=0;
-            // }
+            ///Muertes
+            //flechas
+            if (flecha.spriteFlecha.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
+            {
+                cout<<"moriste por flecha";
+                vivo = 0;
+            }
+            if (flecha1.spriteFlecha.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
+            {
+                vivo = 0;
+                cout<<"moriste por flecha1";
+            }
+            //bolas
+            if (bola.spriteBola.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
+            {
+                vivo=0;
+                cout<<"moriste por bola";
+            }
+            if (bola1.spriteBola.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
+            {
+                vivo=0;
+                cout<<"moriste por bola1";
+            }
+            if (bola2.spriteBola.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
+            {
+                vivo=0;
+                cout <<"moriste por bola2";
+            }
+            //sierras 
+            if (sierra.spriteSierra.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
+            {
+                vivo=0;
+                cout<<"moriste por sierra";
+            }
+            if (sierra1.spriteSierra.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
+            {
+                vivo=0;
+                cout<<"moriste por sierra1";
+            }
             window.clear(Color(51, 51, 51));
             //  touching=0;
             // for (int i=0;i<bases.size();i++)
@@ -160,14 +191,45 @@ int main()
                 window.draw(bases[i].spriteBase);
             }
             window.draw(sandia.spriteSandia);
+            if (c>100)
+            {
             window.draw(bola.spriteBola);
-            window.draw(bola1.spriteBola);
-            window.draw(flecha.spriteFlecha);
-            window.draw(sierra.spriteSierra);
-            flecha.update();
             bola.update();
+            }
+            if(c>300)
+            {
+            window.draw(bola1.spriteBola);
             bola1.update();
+            }
+            if(c>500)
+            {
+            window.draw(sierra.spriteSierra);
             sierra.update();
+            sierra.spriteSierra.setPosition(Vector2f(0.f,411.f));
+            }
+            if(c>700)
+            {
+                window.draw(bola2.spriteBola);
+                bola2.update();
+            }
+            if(c>900)
+            {
+                
+                window.draw(flecha1.spriteFlecha);
+                flecha1.update();
+                // if(bla==0)
+                // {
+                flecha1.spriteFlecha.setPosition(rand()%952,-10);
+// bla=1;
+                // }
+            }
+            if(c>1100)
+            {
+                window.draw(sierra1.spriteSierra);
+                sierra1.update();
+            }
+            window.draw(flecha.spriteFlecha);
+            flecha.update();
             window.draw(papu.pato);
             window.display();
         }
