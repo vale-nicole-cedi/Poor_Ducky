@@ -112,7 +112,7 @@ int main()
                 if(papu.estaEnBase(bases[i])==1)
                 {
                     touching=1;
-                    break;
+                   // break;
                 }
             }
             if(!touching)

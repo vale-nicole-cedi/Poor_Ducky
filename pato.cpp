@@ -12,7 +12,7 @@ Pato::Pato()
     this->pato.setPosition(451, 415);
     this->pisando = 1;
     this->derecha = 1;
-    this->pts=0;
+    this->pts = 0;
     //   this->speed = Vector2f(0.f,-10.f);
 }
 
@@ -73,6 +73,7 @@ void Pato::click()
     this->speed = {0.f, -17.f};
     this->acc.y = 1.f;
     this->pisando = 0;
+    cout<<"brinco"<<endl;
 }
 bool Pato::estaEnBase(Bases base)
 {
@@ -80,20 +81,28 @@ bool Pato::estaEnBase(Bases base)
     // Vector2f size = this->pato.getLocalBounds().getSize();
     if (this->pato.getGlobalBounds().intersects(base.spriteBase.getGlobalBounds()))
     {
-        if(this->pato.getPosition().y<base.spriteBase.getPosition().y)
+        if (this->pato.getPosition().y < base.spriteBase.getPosition().y)
         {
-        this->acc.y=0;
-        this->pisando=1;
+            this->acc.y = 0;
+            this->pisando = 1;
+       this->speed.y = 0;
+       cout<<pisando<<endl;
         }
-        else 
-        {
-           this->pisando=0;
-        }
-        this->speed.y=0;
+
     }
-    if (this->pato.getPosition().y >= 401)
+    else
+    {
+        this->pisando = 0;
+        cout<<this->pisando<<endl;
+    }
+    if ((this->pato.getPosition().y >= 401))
     {
         this->pisando = 1;
+        cout<<pisando<<endl;
     }
+    // if (this->pato.getPosition().y >= 401)
+    // {
+    //     this->pisando = 1;
+    // }
     return this->pisando;
 }
