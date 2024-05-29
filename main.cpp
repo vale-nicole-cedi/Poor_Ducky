@@ -37,6 +37,7 @@ int main()
     Sandia sandia;
     Bolas bola;
     Flechas flecha;
+    bool touching=0;
 
     if (!fondo.loadFromFile("fondo.jpg"))
     {
@@ -87,7 +88,7 @@ int main()
             // }
             if (Keyboard::isKeyPressed(Keyboard::Space) || Keyboard::isKeyPressed(Keyboard::W))
             {
-                if (papu.pisando)
+                if (papu.pisando || touching)
                 {
                     papu.click();
                 }
@@ -106,19 +107,20 @@ int main()
                 vivo=0;
             }
             window.clear(Color(51, 51, 51));
-            bool touching=0;
+             touching=0;
             for (int i=0;i<bases.size();i++)
             {
                 if(papu.estaEnBase(bases[i])==1)
                 {
                     touching=1;
-                   // break;
+                   break;
                 }
             }
             if(!touching)
             {
                 papu.acc.y=1;
             }
+            cout<<touching<<endl;
             papu.brincar();
             window.draw(fondoS);
             for (int i = 0; i < bases.size(); i++)
