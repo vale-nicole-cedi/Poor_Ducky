@@ -10,7 +10,7 @@ Sierra::Sierra()
     this->spriteSierra.setTexture(this->sierra);
     this->speed.x=10;
     this->speed.y=0;
-    this->spriteSierra.setPosition(Vector2f(rand()%1002,411.f));
+    this->spriteSierra.setPosition(Vector2f(1300.f,1000.f));
 }
 void Sierra::drawTo(RenderWindow &window)
 {

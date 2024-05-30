@@ -9,7 +9,7 @@ Bola::Bola()//tenemos que ponerle al constructor una posicion para mandarla desd
         cout << "Error al cargar imagen" << endl;
     }
     this->spriteBola.setTexture(this->bola);
-    this->spriteBola.setPosition(rand()%952,rand()%400);//random 
+    this->spriteBola.setPosition(2000.f,2000.f);//random 
     this->speed=Vector2f(30,30);
 }
 void Bola::update()

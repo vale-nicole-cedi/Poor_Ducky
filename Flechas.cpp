@@ -11,7 +11,7 @@ Flechas::Flechas()
         cout << "Error al cargar imagen" << endl;
     }
     this->spriteFlecha.setTexture(this->felcha);
-    this->spriteFlecha.setPosition(rand()%952,-10);//random 
+    this->spriteFlecha.setPosition(1300,-10);//random 
 }
 
 void Flechas::update()
