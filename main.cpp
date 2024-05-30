@@ -219,16 +219,6 @@ int main()
                 window.draw(bola1.spriteBola);
                 bola1.update();
             }
-            if (c > 700)
-            {
-                if(bla4==0)
-                {
-                    bola2.spriteBola.setPosition(rand()%952,rand()%400);
-                    bla4=1;
-                }
-                window.draw(bola2.spriteBola);
-                bola2.update();
-            }
             if (c > 500)
             {
                 if(bla3==0)
@@ -238,6 +228,16 @@ int main()
                 }
                 window.draw(sierra.spriteSierra);
                 sierra.update();
+            }
+            if (c > 700)
+            {
+                if(bla4==0)
+                {
+                    bola2.spriteBola.setPosition(rand()%952,rand()%400);
+                    bla4=1;
+                }
+                window.draw(bola2.spriteBola);
+                bola2.update();
             }
             if (c > 900)
             {
