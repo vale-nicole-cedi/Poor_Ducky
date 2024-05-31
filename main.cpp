@@ -5,6 +5,7 @@
 #include "bolas.hpp"
 #include "flechas.hpp"
 #include "sierra.hpp"
+#include "canon.hpp"
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -43,6 +44,7 @@ int main()
     Flechas flecha1;
     Sierra sierra;
     Sierra sierra1;
+    Canon canon;
     int c = 0;
     int bla = 0;
     int bla1 = 0;
@@ -51,6 +53,7 @@ int main()
     int bla4 = 0;
     int bla5 = 0;
     int bla6 = 0;
+    int bla7 = 0;
 
     bool touching = 0;
 
@@ -177,6 +180,11 @@ int main()
                 vivo = 0;
                 cout << "moriste por sierra1";
             }
+            if (canon.spriteBala.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
+            {
+                vivo=0;
+                cout<<"moriste por canon"<<endl;
+            }
             window.clear(Color(51, 51, 51));
             //  touching=0;
             // for (int i=0;i<bases.size();i++)
@@ -265,6 +273,15 @@ int main()
                 flecha.spriteFlecha.setPosition(rand() % 952, -10);
                 bla6=1;
             }
+            if (bla7=0)
+            {
+            canon.spriteCanon.setPosition(Vector2f(900,rand()%450));
+            canon.spriteBala.setPosition(canon.spriteCanon.getPosition());
+            bla7=1;
+            }
+            window.draw(canon.spriteBala);
+            window.draw(canon.spriteCanon);
+            canon.update();
             window.draw(flecha.spriteFlecha);
             flecha.update();
             window.draw(papu.pato);

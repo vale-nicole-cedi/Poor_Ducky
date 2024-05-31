@@ -4,11 +4,12 @@ using namespace std;
 Bola::Bola()//tenemos que ponerle al constructor una posicion para mandarla desde el main y saber donde escribirlo.
 {
 
- if(!this->bola.loadFromFile("sandia_sinfondo.png"))
+ if(!this->bola.loadFromFile("ball_spikes.png"))
     {
         cout << "Error al cargar imagen" << endl;
     }
     this->spriteBola.setTexture(this->bola);
+    
     this->spriteBola.setPosition(20000.f,20000.f);//random 
     this->speed=Vector2f(30,30);
 }
