@@ -9,7 +9,7 @@ Bolas::Bolas( Vector2f speed)
     }
     this->spriteBola.setTexture(this->bola);
     this->speed=speed;
-    this->spriteBola.setPosition(Vector2f(rand()%990,1.f));
+    this->spriteBola.setPosition(Vector2f(10000000/*rand()%990*/,1.f));
 }
 void Bolas::drawTo(RenderWindow &window)
 {

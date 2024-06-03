@@ -9,12 +9,28 @@
 #include "canon.hpp"
 #include <iostream>
 #include <vector>
+#include <sstream>
 using namespace std;
 using namespace sf;
 int main()
 {
     RenderWindow window(VideoMode(1002, 600), "Poor Ducky :(");
     window.setFramerateLimit(30);
+
+    Clock clock;
+    Time elapsed;
+    Font font;
+    if (!font.loadFromFile("arial.ttf")) 
+    {
+    cout << "Error al cargar la fuente" << std::endl;
+        return 1;
+    }
+    Text text;
+
+    text.setFont(font);
+    text.setCharacterSize(24);
+    text.setFillColor(Color::Black);
+
     // CircleShape shape(100.f);
     bool girar = 1, girar2 = 0;
     Pato papu;
@@ -84,6 +100,14 @@ int main()
                 if (event.type == Event::Closed)
                     window.close();
             }
+
+            elapsed = clock.getElapsedTime();
+
+            ostringstream ss;
+            ss << elapsed.asSeconds() << "s";
+            text.setString(ss.str());
+
+            
             //  if (event.type == Event::KeyPressed)
             // {
             if (Keyboard::isKeyPressed(Keyboard::Left) || Keyboard::isKeyPressed(Keyboard::A))
@@ -293,6 +317,7 @@ int main()
             window.draw(flecha.spriteFlecha);
             flecha.update();
             window.draw(papu.pato);
+            window.draw(text);
             window.display();
         }
         else

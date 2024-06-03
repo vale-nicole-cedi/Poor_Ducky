@@ -1,6 +1,11 @@
 #include "pato.hpp"
 #include <iostream>
+#include <sstream>
+
 using namespace std;
+using namespace sf; 
+
+
 Pato::Pato()
 {
 
