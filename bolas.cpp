@@ -3,7 +3,7 @@
 using namespace std;
 Bolas::Bolas( Vector2f speed)
 {
-    if(!this->bola.loadFromFile("ball_spikes.png"))
+    if(!this->bola.loadFromFile("pelota.png"))
     {
         cout << "Error al cargar imagen" << endl;
     }
