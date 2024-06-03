@@ -8,7 +8,7 @@ Sierra::Sierra()
         cout << "Error al cargar imagen" << endl;
     }
     this->spriteSierra.setTexture(this->sierra);
-    this->speed.x=10;
+    this->speed.x=8;
     this->speed.y=0;
     this->spriteSierra.setPosition(Vector2f(1300.f,1000.f));
 }

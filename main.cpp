@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "pato.hpp"
 #include "bases.hpp"
 #include "sandia.hpp"
@@ -64,7 +65,14 @@ int main()
     Sprite fondoS;
     fondoS.setTexture(fondo);
     // shape.setFillColor(Color::Green);
-
+    SoundBuffer buffer;
+    if (!buffer.loadFromFile("musica.wav"))
+    {
+        cout << "Error al cargar musica"<<endl;
+    }
+        Sound sound;
+        sound.setBuffer(buffer);
+        sound.play();
     while (window.isOpen())
     {
         if (vivo)

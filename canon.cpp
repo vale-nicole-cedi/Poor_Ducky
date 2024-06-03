@@ -3,6 +3,7 @@
 using namespace std;
 Canon::Canon()
 {
+    
     if(!this->canon.loadFromFile("canon.png"))
     {
         cout << "Error al cargar imagen" << endl;
@@ -16,7 +17,7 @@ Canon::Canon()
     this->spriteBala.setTexture(this->bala);
     this->spriteBala.setScale(2.f,2.f);
     this->spriteBala.setPosition(this->spriteCanon.getPosition());
-    this->speed=Vector2f(-20,0);
+    this->speed=Vector2f(-10,0);
 }
 void Canon::update()
 {
