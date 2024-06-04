@@ -180,37 +180,55 @@ int main()
                 cout << "moriste por flecha";
                 vivo = 0;
             }
+            if (c>910)
+            {
             if (flecha1.spriteFlecha.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
             {
                 vivo = 0;
                 cout << "moriste por flecha1";
             }
+            }
             // bolas
+            if(c>110)
+            {
             if (bola.spriteBola.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
             {
                 vivo = 0;
                 cout << "moriste por bola";
             }
+            }
+            if (c>310)
+            {
             if (bola1.spriteBola.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
             {
                 vivo = 0;
                 cout << "moriste por bola1";
             }
+            }
+            if(c>710){
             if (bola2.spriteBola.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
             {
                 vivo = 0;
                 cout << "moriste por bola2";
             }
+            }
             // sierras
+            if(c>510)
+            {
             if (sierra.spriteSierra.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
             {
                 vivo = 0;
                 cout << "moriste por sierra";
             }
+            }
+            if(c>1110)
+            {
+
             if (sierra1.spriteSierra.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
             {
                 vivo = 0;
                 cout << "moriste por sierra1";
+            }
             }
             if (canon.spriteBala.getGlobalBounds().intersects(papu.pato.getGlobalBounds()))
             {
